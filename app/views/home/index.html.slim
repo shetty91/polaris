@@ -1,4 +1,31 @@
-h1
-  | Home#index
-p
-  | Find me in app/views/home/index.html.erb
+.row
+  .col-lg-12
+    h1
+      | Welcome to Polaris
+    .sort
+      select.form-control
+        option Sort by
+        option Newest
+        option Rating
+    .sortByType
+      select.form-control
+        option All
+        option Guide
+        option Events
+        option Help
+.post-container
+  .row
+    - @posts.each do |post|
+        .col-lg-3.col-md-4.col-sm-6.col-xs-12
+          .panel.panel-default
+            .panel-body
+              h4 = post.title
+            .panel-footer
+              .postType
+                = post.postType
+              .rating
+                .upVotes
+                  = "&uarr;".html_safe + post.upVotes.to_s
+                .downVotes
+                  = "&darr;".html_safe + post.downVotes.to_s
+

@@ -6,8 +6,9 @@ class CreatePosts < ActiveRecord::Migration
       t.text :short_description
       t.integer :user_id, null: false
       t.text :tagging_details
-      t.time :publish_date
-
+      t.string :postType
+      t.integer :upVotes
+      t.integer :downVotes
       t.timestamps
     end
   end
